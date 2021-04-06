@@ -1,13 +1,13 @@
 import scipy
 from scipy import stats # has the f-tables 
 
-dva = [4, 4, 5, 6, 6]
-dvb = [4, 5, 7, 7, 7]
-dvc = [3, 4, 4, 4, 5]
+iva = [4, 4, 5, 6, 6]
+ivb = [4, 5, 7, 7, 7]
+ivc = [3, 4, 4, 4, 5]
 v_all = []
-v_all.extend(dva)
-v_all.extend(dvb)
-v_all.extend(dvc)
+v_all.extend(iva)
+v_all.extend(ivb)
+v_all.extend(ivc)
 
 def Average (lst):
     return sum(lst) / len(lst)
@@ -41,13 +41,13 @@ def SSW(lst):
             sums.append((y-avg)**2)
     return sum(sums)
 
-dva_barx = Average(dva)
-dvb_barx = Average(dvb)
-dvc_barx = Average(dvc)
+iva_barx = Average(iva)
+ivb_barx = Average(ivb)
+vc_barx = Average(ivc)
 
 sst = SST(v_all)
-ssb = SSB([dva,dvb,dvc])
-ssw = SSW([dva,dvb,dvc])
+ssb = SSB([iva,ivb,ivc])
+ssw = SSW([iva,ivb,ivc])
 
 # control that SST = SSB + SSW
 
@@ -55,7 +55,7 @@ ssw = SSW([dva,dvb,dvc])
 dfb = 2
 msb = ssb / dfb
 
-dfw = 3*(len(dva)-1) 
+dfw = 3*(len(iva)-1) 
 msw = ssw / dfw
 
 f = msb/msw
